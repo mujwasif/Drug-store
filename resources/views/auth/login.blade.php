@@ -17,6 +17,7 @@
         .error-content {
             width: 350px;
             height: 250px;
+            border:5px solid steelblue;
             border-radius: 20px;
             background-color: whitesmoke;
             display: flex;
