@@ -1,0 +1,442 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 100%;
+    /*background-color: rgb(221, 119, 119);*/
+
+}
+
+.info {  /* the info bar*/
+
+    width: 100%;
+    height: 40px;
+    background-color: rgb(61, 178, 255);
+    border-bottom: 2px solid silver;
+}
+
+.info_table
+{
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    padding-top:10px;
+    font-family:'Roboto', sans-serif;
+    font-weight:600;
+    color: white;
+}
+.info_table td
+{
+    padding-right: 10px;
+    padding-left: 10px;
+    border-left: 2px solid rgb(53, 152, 218);
+    text-align: center;
+    font-size: 80%;
+    
+}
+
+.bar
+{   
+    position: sticky;
+    top:0px;
+    width:100%;
+    height:80px;
+    background-color: white;
+    border-bottom:2px solid rgb(240, 242, 245);
+    z-index: 3;
+    
+}
+/* NEED TO CHANGE ALL POSITION */
+.icon
+{
+    padding-left: 13%;
+    padding-top: 12px;
+}
+
+.search
+{
+    padding-left: 35%;
+    margin-top: -60px;
+}
+
+.search input[type="text"] 
+{
+    width: 40%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 25px 0 0 25px;
+    padding: 6px 12px;
+    background-color: #f1f1f1;
+    color: #666;
+}
+
+.navbar-form .search-button 
+{
+    padding-left: 42%;
+    margin-top: -54px;
+}
+
+.navbar-form .btn 
+{
+    height: 54px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 0 25px 25px 0;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navbar-form .btn:hover
+{
+    background-color:rgb(61, 178, 255);
+    color: white;
+}
+
+.login
+{
+    position: absolute;
+    top: 10px;
+    right: 10%;
+    background-color: transparent;
+}
+
+.side_bar_btn
+{
+    position: relative;
+    left:3%;
+    top:-54px;
+    width: 55px;
+    height: 50px;
+    border: 2px solid #ccc;;
+    border-radius: 25px 25px;
+    text-align: center;
+    color:white;
+    background-color: rgb(61, 178, 255);
+}
+
+.side_bar_btn:hover
+{
+    color:black;
+    background-color: #cccc;
+}
+
+.sidenav 
+{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    font-family:'Roboto', sans-serif;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+}
+
+.sidenav a,.sidenav h1
+{
+    text-align: center;
+    padding-bottom: 30px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidenav a:hover 
+{
+    color: rgb(61, 178, 255);
+}
+
+.sidenav .closebtn 
+{   
+    height: 20px;
+    width: 100%;
+    background-color: rgb(218, 218, 218);
+    margin-top: -60px;
+    margin-bottom: 30px;
+    font-size: 36px;
+
+}
+.sidenav .closebtn:hover
+{
+    background-color: silver;
+}
+
+.nav_bar
+{
+    width:100%;
+    height:100px;
+    background-color: white;
+}
+
+img
+{
+    max-width:100%;
+}
+/*-------------bar-------------------*/
+.footer1
+{
+    height: 140px;
+    width: 100%;
+    background-color: rgb(230, 242, 252);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer1 a, .footer1 h2 {
+    margin: 0px 50px 0px 50px;
+    padding: 22px 50px 22px 50px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto', sans-serif ;
+    background-repeat: no-repeat;
+    background-size:40px;
+    background-position: 0px 18px;
+
+}
+
+.footer1 a:nth-child(1) 
+{
+    background-image: url('../image/store.png');
+    background-position: 0px 25px;
+}
+
+.footer1 h2:nth-child(2) 
+{
+    background-image: url('../image/call.png');
+
+}
+
+.footer1 h2:nth-child(3) 
+{
+    background-image: url('../image/mail.png');
+}
+
+.footer1 a:nth-child(4) 
+{
+    background-image: url('../image/faq.png');
+}
+/*-------------Info / CC / Join us-------------------*/
+.footer2
+{
+    height: 365px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.footer2 p
+{
+    margin: 60px 400px 0px -80px;
+    max-width: 280px;
+
+    height: auto;
+    padding-top: 90px;
+    background-image: url('../image/icon.png');
+    background-repeat: no-repeat;
+    background-size:220px;
+
+
+}
+
+.footer2 h1
+{
+    margin-top: 60px;
+    padding: 20px;
+}
+.footer2 .join
+{
+    margin-left: 50px;
+}
+.footer2 .join h2
+{
+    margin-top: 60px;
+    margin-left: -20px;
+    padding: 20px;
+
+
+}
+.footer2 h1 a
+{
+    display: block;
+    margin: 10px 0;
+    text-decoration: none; 
+    color:rgb(95, 95, 95);
+    font-size: 15px;
+}
+
+.footer2 h1 a:hover
+{
+    color: rgb(61, 178, 255);
+}
+
+.footer2 .join a
+{
+    display: inline;
+    padding: 10px 22px 10px 20px;
+    background-repeat: no-repeat;
+    background-size:40px;
+    filter: grayscale(90%);
+}
+
+.footer2 .join a:hover
+{
+    filter: grayscale(0%);
+}
+
+
+.join a:nth-child(2)
+{
+    background-image: url(../image/facebook.png);
+    background-size:38px;
+}
+
+.join a:nth-child(3)
+{
+    background-image: url(../image/youtube.png);
+}
+.join a:nth-child(4)
+{
+    background-image: url(../image/tweeter.png);
+}
+/*-------------Footer 3 table & payment-------------------*/
+.footer3
+{
+    margin-left:300px;
+    margin-right: 300px;
+    height: 165px;
+
+}
+.footer_table, .footer_table td
+{
+    border: 1px solid rgb(233, 233, 233);
+}
+.footer_table
+{
+    border-collapse: collapse;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 60px;
+}
+
+.footer_table td
+{   
+    text-align: center;
+    font-weight: 900;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-size:38px;
+
+
+}
+
+.footer3 p
+{
+    padding-top: 2px;
+    font-size: 15px;
+    color: rgb(102,102,102);
+    font-weight: 600;
+}
+
+.footer_table td:nth-child(1)
+{   
+    background-image: url(../image/return.png);
+    background-position: 45px 10px;
+}
+.footer_table td:nth-child(2)
+{   
+    background-image: url(../image/delivery.png);
+    background-position: 75px 10px;
+}
+.footer_table td:nth-child(3)
+{   
+    background-image: url(../image/customer_care.png);
+    background-position: 40px 10px;
+}
+.footer_table td:nth-child(4)
+{   
+    background-image: url(../image/secure.png);
+    background-position: 45px 10px;
+}
+
+.footer3 h1,.footer3 h2
+{
+    display: inline-block;
+    font-size: 12px;
+    color:rgb(95, 95, 95);
+    font-weight:600;
+
+}
+.footer3 h2
+{
+    margin-left:50%;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding: 10px 200px 15px 0px;
+    background-image: url(../image/cash.png),url(../image/bkash.png),url(../image/master.png),url(../image/visa.png);
+    background-position: 30% 0px,45% 0px,60% 0px,75% 0px;
+}
+
+
+
+
+.drop-profile-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop-profile
+{
+    position: relative;
+    display: inline-block;
+}
+
+
+.drop-profile a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.drop-profile-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.drop-profile:hover .drop-profile-content {
+    display: block;
+}

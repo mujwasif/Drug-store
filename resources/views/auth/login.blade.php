@@ -1,47 +1,105 @@
+@section('title', 'Login | Pritom Drug Store')
 <x-guest-layout>
+    <style>
+        .error-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .error-content {
+            width: 350px;
+            height: 250px;
+            border-radius: 20px;
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+        }
+    </style>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <div class="container">
+        <div class="box">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <h1 style="text-align: center;">Login</h1>
+                <h2 style="text-align: center;">Don't have an account? <a style="color: rgb(61, 178, 255); text-decoration: none;" href="{{ route('register') }}">Create a free Account</a> </h2>
+                <label for="email"><b>Email</b></label>
+                <x-text-input id="email" placeholder="example@gmail.com" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="off" />
+                <label for="psw"><b>Password</b></label>
+                <x-text-input id="password" placeholder="Min. 6 Character" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="off" />
+                <div class="block mt-4">
+                    <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                    <span>{{ __('Remember me') }}</span>
+                </div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <div class="flex items-center justify-end mt-4">
+                    @if (Route::has('password.request'))
+                        <a style="color: rgb(61, 178, 255); text-decoration: none; text-align:right; display: block; margin-right: 50px;margin-top: -20px;" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
+
+                    <div class="error-modal" id="errorModal" data-has-error="{{ $errors->has('email') ? 'true' : 'false' }}">
+                        <div class="error-content">
+                            @error('email')
+                                <span>{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+
+                <label class="ini">Sign in Social Account</label>
+                
+                <div class="social">
+                    <button class="image-button" type="submit">Sign in with google</button>
+                    <button class="image-button" type="submit">Sign in with facebook</button>
+                </div>
+
+                <x-primary-button class="ms-3">
+                    {{ __('Log in') }}
+                </x-primary-button>
+            </form>
         </div>
+    </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var errorModal = document.getElementById('errorModal');
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            document.addEventListener('click', function (event) {
+                if (event.target === errorModal) {
+                    hideErrorModal();
+                }
+            });
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+            function showErrorModal() {
+                errorModal.style.display = 'flex';
+            }
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+            function hideErrorModal() {
+                errorModal.style.display = 'none';
+            }
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
+            // Show the error modal only if there is an error
+            var hasError = errorModal.getAttribute('data-has-error') === 'true';
+            if (hasError) {
+                showErrorModal();
+            }
+        });
+    </script>
 </x-guest-layout>

@@ -1,0 +1,45 @@
+@section('title', 'Login | Pritom Drug Store')
+<x-guest-layout>
+    <!-- Session Status -->
+    <title>Login | Pritom Drug Store</title>
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <div class="container">
+        <div class="box">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                    <h1 style="text-align: center;">Login</h1>
+                    <h2 style="text-align: center;">Don't have an acoount? <a style="text-decoration: none;" href="{{ route('register') }}">Create a free Acount</a> </h2>
+                    <label for="username"><b>Username</b></label>
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username"/>
+                    <label for="psw"><b>Password</b></label>
+                    <x-text-input id="password" class="block mt-1 w-full"
+                                    type="password"
+                                    name="password"
+                                    required autocomplete="current-password" />
+                                    <div class="block mt-4">
+
+                        <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                        <span >{{ __('Remember me') }}</span>
+
+
+                <div class="flex items-center justify-end mt-4">
+                    @if (Route::has('password.request'))
+                        <a style="text-align:right; display: block; margin-right: 50px;margin-top: -20px;" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
+
+                </div>
+                <label class="ini">Sign in Social Account</label>
+            
+            <div class="social">
+                <button class="image-button" type="submit">Sign in with google</button>
+                <button class="image-button" type="submit">Sign in with facebook</button>
+            </div>
+            <x-primary-button class="ms-3">
+                        {{ __('Log in') }}
+                    </x-primary-button>
+            </form>
+        </div>
+    </div>
+</x-guest-layout>

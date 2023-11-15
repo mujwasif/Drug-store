@@ -1,0 +1,136 @@
+/*Login*/
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 700px;
+    background-image: url(../image/login_back.png);
+    background-position: center;
+}
+.box
+{   
+
+    background-color: white;
+    height: 580px;
+    width: 550px;
+    box-shadow: 0px 20px 30px 5px rgb(221, 220, 220)
+    
+}
+
+.box input[type=email], .box input[type=password], .box input[type=TEXT] 
+{
+    width: 80%;
+    padding: 15px 20px;
+    margin: 10px 30px; 
+    border: 1px solid #ccc;  
+    border-radius: 3px; 
+}
+.box input[type=checkbox]
+{
+    margin: 25px 2px 0px 30px;
+    
+}
+.box label
+{
+    font-size: 15px;
+    position: relative;
+    top:18px;
+    left:50px;
+    background: white;
+    z-index: 0;
+    font-family:'Roboto', sans-serif;
+}
+.box span
+{
+    text-decoration: none;
+    color: rgb(61, 178, 255);
+    font-family:'Roboto', sans-serif;
+    font-weight: 500;
+}
+.box h1
+{
+    position: relative;
+    font-size: 35px;
+    top: 30px;
+    font-family:'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+.box h2
+{
+    position: relative;
+    font-size: 18px;
+    top: 35px;
+    font-family:'Roboto', sans-serif;
+    font-weight: 400;
+    padding-bottom: 30px;
+}
+
+.social::before {
+    content: '';
+    display: block;
+    width: calc(100% - 60px);
+    height: 1px; 
+    background-color: silver;
+    margin: 0px auto 0;
+}
+
+.box .ini
+{
+    background-color:white;
+    top:12px;
+    padding:0px 10px 0px 10px;
+    left:190px;
+    color:silver;
+}
+
+.image-button 
+{
+    margin:40px 0px 50px 35px;
+    padding: 20px 50px;
+    background-color:white;
+    border:1px solid silver; 
+    border-radius: 3px; 
+}
+.image-button:nth-child(1) {
+    background-image: url('../image/google.png');
+    background-repeat: no-repeat;
+    background-size:40px;
+    background-position: 6px 6px;
+}
+
+.image-button:nth-child(2) {
+    background-image: url('../image/facebook.png');
+    background-repeat: no-repeat;
+    background-size:40px;
+    background-position: 5px 6px;
+}
+
+.image-button:hover 
+{
+    background-color:silver;
+    border:1px solid silver; 
+    border-radius: 3px; 
+    cursor: pointer;
+}
+
+.box .ms-3, .box .ms-4
+{
+    background-color:rgb(0, 0, 0);
+    color:white;
+    font-family:'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0px 0px 0px 72px;
+    padding: 18px 180px;
+    border-radius: 3px;
+}
+
+.box .ms-3:hover,.box .ms-4:hover
+{
+    background-color:rgb(43, 142, 235);
+    cursor: pointer;
+    border:1px solid silver;
+}
