@@ -28,7 +28,6 @@
     </style>
 
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div class="container">
         <div class="box">
@@ -67,10 +66,11 @@
                 <label class="ini">Sign in Social Account</label>
                 
                 <div class="social">
-                    <button class="image-button" type="submit">Sign in with google</button>
-                    <button class="image-button" type="submit">Sign in with facebook</button>
-                </div>
+                    <a href="{{url('redirect')}}"><img src="../image/facebook.png"></a>
+                    <a href="{{route('google-auth')}}"><img src="../image/google.png"></a>
 
+                </div>
+                <x-auth-session-status class="mb-4" :status="session('status')" />
                 <x-primary-button class="ms-3">
                     {{ __('Log in') }}
                 </x-primary-button>

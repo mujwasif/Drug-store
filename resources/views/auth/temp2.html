@@ -33,28 +33,30 @@
         }
 
     </style>
-    <!-- Session Status -->
+
     <div class="container">
         <div class="box">
-            <h1 style="text-align: center;">Forgot your password?</h1>
-            <h2 style="text-align: center; font-size:15px;">No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one</h2>
-                
-            <form method="POST" action="{{ route('password.email') }}">
+            <h1 style="text-align: center;">Please confirm your password</h1>
+            <h2 style="text-align: center; font-size:15px;">This is a secure area of the application. Please confirm your password before continuing.</h2>
+
+            <form method="POST" action="{{ route('password.confirm') }}">
                 @csrf
-                <!-- Email Address -->
+                <!-- Password -->
                 <div>
-                    
-                    <label for="email"><b>Email</b></label>
-                    <x-text-input id="email" type="email" name="email" :value="old('email')" required autofocus />
-                    <x-input-error :messages="$errors->get('email')" class="text-box" />
-                    <x-auth-session-status class="text-box" :status="session('status')" />
+                    <label for="password"><b>Password</b></label>
+                    <x-text-input id="password"
+                                    type="password"
+                                    name="password"
+                                    required autocomplete="current-password" />
+
+                    <x-input-error :messages="$errors->get('password')" class="text-box" />
                 </div>
 
-                
+            
                 <x-primary-button class='m3'>
-                    {{ __('Reset Password') }}
+                    {{ __('Confirm') }}
                 </x-primary-button>
-                
+            
             </form>
         </div>
     </div>

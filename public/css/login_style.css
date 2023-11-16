@@ -68,14 +68,7 @@
     padding-bottom: 30px;
 }
 
-.social::before {
-    content: '';
-    display: block;
-    width: calc(100% - 60px);
-    height: 1px; 
-    background-color: silver;
-    margin: 0px auto 0;
-}
+
 
 .box .ini
 {
@@ -86,34 +79,14 @@
     color:silver;
 }
 
-.image-button 
+.social
 {
-    margin:40px 0px 50px 35px;
-    padding: 20px 50px;
-    background-color:white;
-    border:1px solid silver; 
-    border-radius: 3px; 
-}
-.image-button:nth-child(1) {
-    background-image: url('../image/google.png');
-    background-repeat: no-repeat;
-    background-size:40px;
-    background-position: 6px 6px;
+    margin: 30px 0px 20px 140px;
 }
 
-.image-button:nth-child(2) {
-    background-image: url('../image/facebook.png');
-    background-repeat: no-repeat;
-    background-size:40px;
-    background-position: 5px 6px;
-}
-
-.image-button:hover 
-{
-    background-color:silver;
-    border:1px solid silver; 
-    border-radius: 3px; 
-    cursor: pointer;
+.social a
+{   
+    margin-right: 150px;  
 }
 
 .box .ms-3, .box .ms-4
