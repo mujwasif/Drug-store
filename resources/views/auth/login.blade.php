@@ -25,6 +25,10 @@
             align-items: center;
             font-size: 17px;
         }
+        .mb-4
+        {
+            text-align: center;
+        }
     </style>
 
     <!-- Session Status -->
@@ -35,18 +39,23 @@
                 @csrf
                 <h1 style="text-align: center;">Login</h1>
                 <h2 style="text-align: center;">Don't have an account? <a style="color: rgb(61, 178, 255); text-decoration: none;" href="{{ route('register') }}">Create a free Account</a> </h2>
+
+                   <!-- Email -->
                 <label for="email"><b>Email</b></label>
                 <x-text-input id="email" placeholder="example@gmail.com" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="off" />
+                
+                <!-- password -->
                 <label for="psw"><b>Password</b></label>
                 <x-text-input id="password" placeholder="Min. 6 Character" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
                                 required autocomplete="off" />
+                <!-- Remember me box-->
                 <div class="block mt-4">
                     <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
                     <span>{{ __('Remember me') }}</span>
                 </div>
-
+                <!-- forget password -->
                 <div class="flex items-center justify-end mt-4">
                     @if (Route::has('password.request'))
                         <a style="color: rgb(61, 178, 255); text-decoration: none; text-align:right; display: block; margin-right: 50px;margin-top: -20px;" href="{{ route('password.request') }}">
@@ -70,6 +79,7 @@
                     <a href="{{route('google-auth')}}"><img src="../image/google.png"></a>
 
                 </div>
+                <!-- signm in button -->
                 <x-auth-session-status class="mb-4" :status="session('status')" />
                 <x-primary-button class="ms-3">
                     {{ __('Log in') }}
