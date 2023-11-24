@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ReviewController;
+
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +29,21 @@ Route::get('/dashboard', function () {
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'home']);
+Route::get('/home', [HomeController::class,'home']);
+// Route::get('/home/order/{item_id}', [HomeController::class,'order']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/review/{item_id}',[ReviewController::class,'index']);
+Route::post('/review/insert', [ReviewController::class,'insert']);
+Route::get('/review/show/{item_id}', [ReviewController::class,'show']);
+
+Route::get('/item', [ItemController::class,'index']);
+Route::post('/item/insert', [ItemController::class,'insert']);
+Route::get('/item/order/{item_id}', [ItemController::class,'order']);
 
 Route::get('/redirects', [HomeController::class,'index']);
 

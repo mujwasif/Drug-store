@@ -19,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\FacebookController' => $baseDir . '/app/Http/Controllers/FacebookController.php',
+    'App\\Http\\Controllers\\GoogleAuthController' => $baseDir . '/app/Http/Controllers/GoogleAuthController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

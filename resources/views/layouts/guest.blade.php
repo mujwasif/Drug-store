@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+
     </style>
     <link rel="stylesheet" href="../css/login_style.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!--<title> Get Drugged | Pritom Drug Store</title>-->
     {{-- Yield the title section --}}
@@ -34,7 +36,7 @@
             <div class="search-button">
                 <button type="submit" class="btn btn-default">Search</button>
             </div>
-        </form> 
+        </form>
     </div>
     <div class="login">
         @if (Route::has('login'))
@@ -55,13 +57,13 @@
                     </div>
                     <a style="padding: 15px;" href="#"><img src="../image/heart.png" alt=""></a>
                     <a style="padding: 15px;" href="#"><img src="../image/cart.png" alt=""></a>
-                    @if(auth()->user()->role == 1)  
+                    @if(auth()->user()->role == 1)
                         <a href="{{ url('/dashboard') }}"><img src="../image/dashboard.png" alt=""></a>
                         <h1 style=" margin:-10px 140px 0 -20px;text-align:center; color:#454B54;">{{ explode(' ',Auth::user()->name)[0] }}</h1>
                     @else
                         <h1 style="margin:-10px 105px 0 -20px;text-align:center; color:#454B54;">{{ explode(' ',Auth::user()->name)[0] }}</h1>
                     @endif
-                    
+
                 @else
                 <style>
                     .login
@@ -91,12 +93,12 @@
 
     </div>
     <script>
-        function openNav() 
+        function openNav()
         {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("mySidenav").style.boxShadow = "0px 0px 0px 30000px rgba(0, 0, 0, 0.5)";
         }
-        function closeNav() 
+        function closeNav()
         {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("mySidenav").style.boxShadow = "None";
@@ -112,10 +114,10 @@
     <!--x-guest----------------------------------------------->
     <div class="footer1">
         <a href="#" style="font-weight: 900;">Store Location<p style="font-size: smaller;font-weight: 400;">15051 E Alameda Pkwy, Aurora,</p><p style="font-size: smaller;font-weight: 400;">CO 80012, USA</p></a>
-        <h2 style="cursor: default;">Call Us:<p style="color: rgb(103, 13, 131);">0123 456 789</p></h2>    
-        <h2 style="cursor: default;">Email<p style="font-size: smaller;font-weight: 400;">Pritom@drugstore.com</p></h2>  
+        <h2 style="cursor: default;">Call Us:<p style="color: rgb(103, 13, 131);">0123 456 789</p></h2>
+        <h2 style="cursor: default;">Email<p style="font-size: smaller;font-weight: 400;">Pritom@drugstore.com</p></h2>
         <a href="#" style="font-weight: 900;">Your Questions<p style="font-size: smaller;font-weight: 400;">FAQs</p></a>
-        
+
     </div>
     <div class="footer2">
         <p style="font-size: 16px;font-weight: 400; color: rgb(95, 95, 95);word-wrap: break-word;"> hi how are you are you good this is a test.hi how are you are you good this is a test.hi how are you are you good this is a test.hi how are you are you good this is a test.hi how are you are you good this is a test.hi how are you are you good this is a test.
@@ -134,14 +136,14 @@
             <a href="">Track your Order</a>
             <a href="">Customer Services</a>
             <a href="">Return Product</a>
-            
+
         </h1>
         <div class="join">
             <h2>Join us: </h2>
             <a href=""></a>
             <a href=""></a>
             <a href=""></a>
-        
+
         </div>
     </div>
     <div class="footer3">
@@ -158,4 +160,7 @@
     </div>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </html>

@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::user()->role == 1)
+                    <x-nav-link href="{{ url('item') }}" :active="request()->routeIs('itemGIT')">
+                        {{ __('Item') }}
+                    </x-nav-link>
+                    @endif 
+                    
                 </div>
             </div>
 
@@ -34,9 +40,16 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link href="{{ url('home') }}">
+                            {{ __('Home') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

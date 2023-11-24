@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+Use App\Models\Item;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,6 +30,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        $items = Item::all();
+
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -43,6 +47,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        $items = Item::all();
+
+        return redirect('/home');
     }
 }
