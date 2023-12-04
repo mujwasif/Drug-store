@@ -9,7 +9,7 @@
     </style>
     <link rel="stylesheet" href="../css/login_style.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
 
     <!--<title> Get Drugged | Pritom Drug Store</title>-->
     {{-- Yield the title section --}}
@@ -55,8 +55,23 @@
                         </form>
                         </div>
                     </div>
-                    <a style="padding: 15px;" href="#"><img src="../image/heart.png" alt=""></a>
-                    <a style="padding: 15px;" href="#"><img src="../image/cart.png" alt=""></a>
+                    
+                    
+                    <!------------------------------------------MUJTABA ----------------------------------->
+                    <!------------------------------------------------------------------------------------------->
+                    <!------------------------------------------------------------------------------------------->
+                    
+                    
+                    <a style="padding: 15px;" href="{{url('show_wishlist')}}"><img src="../image/heart.png" alt=""></a>
+                    <a style="padding: 15px;" href="{{url('show_cart')}}"><img src="../image/cart.png" alt=""></a>
+                    
+                    
+                    
+                    <!------------------------------------------------------------------------------------------->
+                    <!------------------------------------------------------------------------------------------->
+                    <!------------------------------------------------------------------------------------------->
+                    
+                    
                     @if(auth()->user()->role == 1)
                         <a href="{{ url('/dashboard') }}"><img src="../image/dashboard.png" alt=""></a>
                         <h1 style=" margin:-10px 140px 0 -20px;text-align:center; color:#454B54;">{{ explode(' ',Auth::user()->name)[0] }}</h1>

@@ -27,6 +27,7 @@
                             <th scope="col">Total Stock</th>
                             <th scope="col">Action</th>
                             <th scope="col">Review</th>
+                            <th scope="col">Wislist</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,9 +67,30 @@
                                 <td>
                                     @if ($item->item_stock < 1)
                                         <a class="btn btn-warning btn-sm" disabled>Stock Out</a>
+
+                                     
                                     @else
-                                        <a href="{{ url('item/order') }}/{{ $item->id }}"
-                                            class="btn btn-success btn-sm">Order</a>
+
+                                    <!------------------- submit form added ------------------------------>
+                                    
+                                    
+                                    <form method="Post" action="{{ url('item/order') }}/{{ $item->id  }}">
+                                        @csrf
+                                        
+
+                                        <label for="quantity">Quantity:</label>
+                                        <input type="number" value="1" min="1" max="5" class="quantity-input" name="quantity">
+
+                                        <!-- submit button -->
+                                        <button type="submit">Submit</button>
+                                    </form>
+
+
+
+                                    
+                                        
+                                    
+
                                     @endif
                                     <a href="{{ url('review') }}/{{ $item->id }}"
                                         class="mt-1 btn btn-success btn-sm">Review</a>
@@ -77,6 +99,11 @@
                                     <a href="{{ url('review/show') }}/{{ $item->id }}"
                                         class="mt-1 btn btn-success btn-sm">See Review</a>
                                 </td>
+                                <td>
+                                    <a href="{{ url('add_wishlist') }}/{{ $item->id }}"
+                                        class="mt-1 btn btn-success btn-sm">Add to Wishlist</a>
+                                </td>
+
                             </tr>
                         @endforeach
                     </tbody>

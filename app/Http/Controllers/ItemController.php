@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
 Use App\Models\Item;
+Use App\Models\cart;
+Use App\Models\wishlist;
+
+
+
 
 class ItemController extends Controller
 {
@@ -36,12 +41,130 @@ class ItemController extends Controller
             'created_at' => Carbon::now()
         ]);
         return back()->with('status','Item Added Successfully!');
-    }
-    function order($item_id){
+        }
+    public function order(Request $request,$item_id){
+        if(Auth::id())       
+        {
+            $user=Auth::user();
+            $item=item::find($item_id);
+            $cart=new cart;
+            
+            $cart->user_name=$user->name;
+            $cart->user_id=$user->id;
+            $cart->user_mail=$user->email; 
+            $cart->item_name=$item->item_name;
+            $cart->item_id=$item->id;
+            $cart->item_price=$item->item_sell_price;
+            $cart->item_quantity=$request->quantity;
+            $cart->save();
+            
+
+
+            $order_item = Item::find($item_id);
+            $sold=$request->quantity;
+            $stock = $order_item->item_stock;
+            $order_item->item_stock = $stock-$sold;
+            $order_item->save();
+            return back();
+
+            
+        }
+        else
+        {
+            return redirect("login");
+        }
+    
+        }
+    public function remove_cart($id,$item_id){
+        {
+
+        $cart=cart::find($id);
+        
         $order_item = Item::find($item_id);
+        $sold=$cart->item_quantity;
         $stock = $order_item->item_stock;
-        $order_item->item_stock = $stock-1;
+        $order_item->item_stock = $stock+$sold;
         $order_item->save();
-        return back();
+
+        $cart->delete();
+        return redirect()->back();
+
+
+
+        }
     }
+
+    public function add_wishlist($item_id){
+        if(Auth::id())       
+        {
+            $user=Auth::user();
+            $item=item::find($item_id);
+            $wishlist=new wishlist;
+            
+            $wishlist->user_name=$user->name;
+            $wishlist->user_id=$user->id;
+            $wishlist->user_mail=$user->email; 
+            $wishlist->item_name=$item->item_name;
+            $wishlist->item_id=$item->id;
+            $wishlist->item_price=$item->item_sell_price;
+            $wishlist->save();
+            
+
+
+            
+            return back();
+
+            
+        }
+        else
+        {
+            return redirect("login");
+        }
+   
+
+
+        }
+    
+    public function remove_wishlist($id,$item_id){
+        {
+    
+            $wishlist=wishlist::find($id);
+            
+    
+            $wishlist->delete();
+            return redirect()->back();
+    
+    
+    
+       }
+       }
+    public function wish_order(Request $request,$item_id){
+             
+        {  
+            $user=Auth::user();
+            $item=item::find($item_id);
+            $cart=new cart;
+            
+            $cart->user_name=$user->name;
+            $cart->user_id=$user->id;
+            $cart->user_mail=$user->email; 
+            $cart->item_name=$item->item_name;
+            $cart->item_id=$item->id;
+            $cart->item_price=$item->item_sell_price;
+            $cart->item_quantity=$request->wish_quantity;
+            $cart->save();
+            
+
+
+            $order_item = Item::find($item_id);
+            $sold=$request->quantity;
+            $stock = $order_item->item_stock;
+            $order_item->item_stock = $stock-$sold;
+            $order_item->save();
+            return back();
+        }    
+
+            
+       
+        }
 }
